@@ -15,3 +15,4 @@ while True:
     spend *= 1 + increase
 
 print(month)  # 8
+
