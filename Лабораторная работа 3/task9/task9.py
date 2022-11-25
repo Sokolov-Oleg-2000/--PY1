@@ -7,7 +7,7 @@ money_capital = 0  # количество денег, чтобы прожить 
 
 while months > 0:
     money_capital += spend - salary
-    spend *= 1+increase
+    spend *= 1 + increase
     months -= 1
 
 print(round(money_capital))
