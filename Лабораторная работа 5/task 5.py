@@ -6,3 +6,4 @@ def get_random_password(n=8) -> str:
     return "".join(a)
 
 print(get_random_password())
+
