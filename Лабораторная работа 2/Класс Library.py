@@ -1,3 +1,5 @@
+from pydantic import BaseModel, conint
+from typing import Optional
 BOOKS_DATABASE = [
     {
         "id": 1,
@@ -12,12 +14,16 @@ BOOKS_DATABASE = [
 ]
 
 
-class Book:
-    def __init__(self, id: int, name: str, pages: int):
-        self.id = id
-        self.name = name
-        self.pages = pages
-
+class Book(BaseModel):
+    id: conint(ge = 0)      # должно быть больше 0
+    name: str
+    pages: conint(ge = 0)   # должно быть больше 0
+    """
+    Создаем класс "Book", который будет инициализировать id, name, pages.
+    :param id: Идентификатор книги
+    :param name: Название книги
+    :param pages: Количество страниц в книге
+    """
     def __str__(self):
         return f'Книга "{self.name}"'
 
@@ -25,10 +31,12 @@ class Book:
         return f"Book(id_={self.id}, name='{self.name}', pages={self.pages})"
 
 
-class Library:
-    def __init__(self, books = None):
-        self.books = books
-
+class Library(BaseModel):
+    books: Optional[list] = []
+    """
+    Создаем класс "Library", который будет инициализировать books.
+    :param books: Список книг
+    """
     def get_next_book_id(self):
         if self.books == None:
             return 1
@@ -39,8 +47,8 @@ class Library:
         for index, value in enumerate(self.books):
             if value.id == id_:
                 return index
-        else:
-            raise ValueError("Книги с запрашиваемым id не существует")
+            else:
+                raise ValueError("Книги с запрашиваемым id не существует")
 
 
 if __name__ == '__main__':
