@@ -55,7 +55,6 @@ class Library(BaseModel):
             return b
 
 
-
 if __name__ == '__main__':
     empty_library = Library()  # инициализируем пустую библиотеку
     print(empty_library.get_next_book_id())  # проверяем следующий id для пустой библиотеки
