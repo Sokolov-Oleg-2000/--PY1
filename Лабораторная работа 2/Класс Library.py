@@ -48,11 +48,9 @@ class Library(BaseModel):
         for index, value in enumerate(self.books):
             if value.id == id_:
                 a = True
-                b = index
+                return index
         if a == False:
             raise ValueError("Книги с запрашиваемым id не существует")
-        else:
-            return b
 
 
 if __name__ == '__main__':
@@ -66,4 +64,3 @@ if __name__ == '__main__':
     print(library_with_books.get_next_book_id())  # проверяем следующий id для непустой библиотеки
 
     print(library_with_books.get_index_by_book_id(1))  # проверяем индекс книги с id = 1
-    
