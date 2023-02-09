@@ -117,10 +117,3 @@ class Android(Phone):
     def __repr__(self):
         return f"{self.__class__.__name__}(memory={self._memory!r}, screen={self._screen!r}, battery={self._battery!r}, system={self._system!r}, android_id={self._android_id!r})"
 
-
-if __name__ == '__main__':
-    ffa = IOS(1, 2, 3, "IOS", -4)
-    print(str(ffa))
-    print(repr(ffa))
-
-
