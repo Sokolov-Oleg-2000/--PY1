@@ -146,7 +146,6 @@ description_Iphone = "Why you choose me???"
 description_Android = "Xiaomi top za svoi dengi"
 
 
-
 if __name__ == '__main__':
     doctest.testmod()
     pass
